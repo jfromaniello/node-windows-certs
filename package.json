@@ -1,0 +1,14 @@
+{
+  "name": "windows-certs",
+  "version": "1.0.0",
+  "description": "Get certificates from the windows store.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Jose F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "2.2.1"
+  }
+}
