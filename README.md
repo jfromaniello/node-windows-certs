@@ -10,14 +10,13 @@ npm i windows-certs
 
 ```javascript
 var certs = require('windows-certs);
+
 certs.getPublicKeys({
-    getPublicKeys({
-      storeName: 'CertificateAuthority',
-      storeLocation: 'LocalMachine'
-    }, function (err, certs) {
-       console.log(certs);
-    });
-})
+  storeName: 'CertificateAuthority',
+  storeLocation: 'LocalMachine'
+}, function (err, certs) {
+   console.log(certs);
+});
 ```
 
 The returned object `certs` is a object like this:
