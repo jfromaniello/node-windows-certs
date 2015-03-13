@@ -9,7 +9,7 @@ npm i windows-certs
 ## Usage
 
 ```javascript
-var certs = require('windows-certs);
+var certs = require('windows-certs');
 
 certs.getPublicKeys({
   storeName: 'CertificateAuthority',
