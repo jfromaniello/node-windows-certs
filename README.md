@@ -11,7 +11,7 @@ npm i windows-certs
 ```javascript
 var certs = require('windows-certs');
 
-certs.getPublicKeys({
+certs.get({
   storeName: 'CertificateAuthority',
   storeLocation: 'LocalMachine'
 }, function (err, certs) {
