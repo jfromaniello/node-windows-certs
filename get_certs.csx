@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 
-public static class StringExtensions
+public static class MyExtensions
 {
     public static string SplitLines(this string str)
     {
@@ -22,6 +22,13 @@ public static class StringExtensions
             .ToList();
 
         return String.Join("\n", chunks);
+    }
+
+    public static string ExportPEMEncoded(this X509Certificate2 cert)
+    {
+        return "-----BEGIN CERTIFICATE-----\n" +
+               Convert.ToBase64String(cert.Export(X509ContentType.Cert)).SplitLines() +
+               "\n-----END CERTIFICATE-----";
     }
 }
 
@@ -50,17 +57,14 @@ public class Startup
 
         store.Open(OpenFlags.ReadOnly);
 
-        var dic = new Dictionary<string, string>();
+        var result = store.Certificates.Cast<X509Certificate2>().Select(cert => new {
+            pem = cert.ExportPEMEncoded(),
+            subject = cert.SubjectName.Name,
+            thumbprint = cert.Thumbprint,
+            issuer = cert.IssuerName.Name
+        });
 
-        foreach (var cert in store.Certificates)
-        {
-            var pem = "-----BEGIN CERTIFICATE-----\n" +
-                      Convert.ToBase64String(cert.Export(X509ContentType.Cert)).SplitLines() +
-                      "\n-----END CERTIFICATE-----";
-            dic.Add(cert.SubjectName.Name, pem);
-        }
-
-        return dic;
+        return result;
     }
 
 }
