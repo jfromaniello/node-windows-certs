@@ -23,7 +23,10 @@ The returned object `certs` is a object like this:
 
 ```json
 {
-  "CN=hello.com, O=Internet Widgits Pty Ltd, S=Some-State, C=AU": "-----BEGIN CERTIFICATE-----\nMIID9DCCAtygAwIBAgIJANWBEUdUZOlPMA0GCSqGSIb3DQEBBQUAMFkxCzAJBgNV..."
+  "subject": "CN=hello.com, O=Internet Widgits Pty Ltd, S=Some-State, C=AU",
+  "issuer": "foo bar",
+  "thumbprint": "...",
+  "pem": "-----BEGIN CERTIFICATE-----\nMIID9DCCAtygAwIBAgIJANWBEUdUZOlPMA0GCSqGSIb3DQEBBQUAMFkxCzAJBgNV..."
 }
 ```
 
