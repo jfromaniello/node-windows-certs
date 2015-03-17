@@ -11,22 +11,39 @@ function internal_get(options, callback) {
     hasStoreName: !!options.storeName,
     hasStoreLocation: !!options.storeLocation
   };
-  getCerts(params, callback);
+  return getCerts(params, callback);
 }
 
 exports.get = function (options, callback) {
-  if (options.storeName && Array.isArray(options.storeName)) {
-    return async.map(options.storeName, function (storeName, done) {
+  if (typeof callback === 'undefined') {
+    callback = true;
+  }
+
+  if (!options.storeName || !Array.isArray(options.storeName)) {
+    return internal_get(options, callback);
+  }
+
+  if (callback === true) {
+    return options.storeName.map(function (storeName) {
       return internal_get({
         storeName: storeName,
         storeLocation: options.storeLocation
-      }, done);
-    }, function (err, results) {
-      if (err) return callback(err);
-      callback(null, results.reduce(function (a, b){
-        return a.concat(b);
-      }));
+      }, true);
+    }).reduce(function (prev, curr) {
+      return prev.concat(curr);
     });
   }
-  internal_get(options, callback);
+
+  return async.map(options.storeName, function (storeName, done) {
+    return internal_get({
+      storeName: storeName,
+      storeLocation: options.storeLocation
+    }, done);
+  }, function (err, results) {
+    if (err) return callback(err);
+    callback(null, results.reduce(function (a, b){
+      return a.concat(b);
+    }));
+  });
+
 };
