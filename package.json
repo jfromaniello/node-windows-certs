@@ -9,10 +9,10 @@
   "author": "Jose F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "2.2.1"
+    "mocha": "^2.4.5"
   },
   "dependencies": {
-    "async": "~0.9.0",
-    "edge": "~0.10.1"
+    "async": "^1.5.2",
+    "edge": "^5.0.0"
   }
 }
