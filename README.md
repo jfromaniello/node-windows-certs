@@ -30,6 +30,11 @@ The returned object `certs` is a object like this:
 }
 ```
 
+See also MSDN documentation on:
+
+* [StoreName](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.storename(v=vs.110).aspx)
+* [StoreLocation](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.storelocation(v=vs.110).aspx)
+
 ## License
 
 MIT 2015 - José F. Romaniello

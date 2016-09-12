@@ -7,6 +7,10 @@
     "test": "mocha"
   },
   "author": "Jose F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jfromaniello/node-windows-certs.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "mocha": "2.2.1"
