@@ -1,6 +1,6 @@
 {
   "name": "windows-certs",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "Get certificates from the windows store.",
   "main": "index.js",
   "scripts": {
