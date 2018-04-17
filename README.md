@@ -1,3 +1,5 @@
+**DEPRECATED** Please use [win-ca](https://github.com/ukoloff/win-ca) which is smaller, works in node 8 and has less dependencies than this module.
+
 Read certificates from the Windows Cert Store from node.js.
 
 ## Installation
